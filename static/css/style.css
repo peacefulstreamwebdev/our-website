@@ -1,0 +1,6 @@
+/* Header - Found in all pages, editable on templates/base.html */
+
+.logo {
+    height: 100px;
+    width: 160px;
+}

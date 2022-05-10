@@ -31,6 +31,9 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'companypro/assets/css/style.css' %}" rel="stylesheet">
 
+  <!-- My CSS -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
   <!-- =======================================================
   * Template Name: Company - v4.7.0
   * Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
@@ -45,7 +48,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="#"><span>Com</span>pany</a></h1>
+      <a href="{% url 'home' %}" class="me-auto"><img class="img-fluid logo" src="{{ MEDIA_URL }}logo.webp" alt="Peaceful Stream Web Development Logo"></a>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
