@@ -1,12 +1,16 @@
 from django.shortcuts import render
+from .models import TeamMember
 
 # Create your views here.
 
 def about(request):
     '''A view to return the home page'''
 
+    members = TeamMember.objects.all()
+
     context = {
         'page': 'about',
+        'members': members,
     }
 
     return render(request, 'about/about.html', context)
@@ -15,8 +19,11 @@ def about(request):
 def team(request):
     '''A view to return the home page'''
 
+    members = TeamMember.objects.all()
+
     context = {
         'page': 'about',
+        'members': members,
     }
 
     return render(request, 'about/team.html', context)

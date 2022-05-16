@@ -36,3 +36,4 @@ class TeamMemberAdmin(admin.ModelAdmin):
 
 
 admin.site.register(TeamContent, TeamContentAdmin)
+admin.site.register(TeamMember, TeamMemberAdmin)
