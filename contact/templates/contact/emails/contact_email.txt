@@ -1,0 +1,11 @@
+Hello Peaceful Stream Web Development!
+
+{{name}} filled out the contact form on your website.
+
+Here are the details:
+
+Email: {{user_email}}
+
+Subject: {{subject}}
+
+Message: {{message}}
