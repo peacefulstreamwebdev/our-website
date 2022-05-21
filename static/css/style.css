@@ -5,6 +5,33 @@
     width: 160px;
 }
 
+/* About - about/templates/about/about.html, team.html, testimonials.html */
+
+.skills-content i {
+    font-size: 50px;
+    margin-right: 20px;
+}
+
+.fa-html5, .fa-git-alt {
+    color: #e45128
+}
+
+.fa-css3-alt, .fa-python {
+    color: #0c73b8
+}
+
+.fa-js {
+    color: #e2a328
+}
+
+.fa-github {
+    color: black;
+}
+
+.fa-bootstrap {
+    color: rgb(71, 42, 71);
+}
+
 /* Contact - contact/templates/contact/contact.html */
 
 .checkmark {

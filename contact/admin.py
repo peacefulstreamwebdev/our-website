@@ -12,6 +12,7 @@ class ContentAdmin(admin.ModelAdmin):
         'name',
         'google_maps_link',
         'address',
+        'address_two',
         'email',
         'phone',
     )

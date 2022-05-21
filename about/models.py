@@ -24,3 +24,22 @@ class TeamMember(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class SkillsContent(models.Model):
+
+    name = models.CharField(max_length=254)
+    skills_content_blurb = models.TextField(max_length=1000, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Skills(models.Model):
+
+    name = models.CharField(max_length=254)
+    skill = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
