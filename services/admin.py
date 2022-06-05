@@ -12,6 +12,7 @@ class ServiceAdmin(admin.ModelAdmin):
         'name',
         'icon_color',
         'icon_class',
+        'svg_path',
         'description',
     )
 
