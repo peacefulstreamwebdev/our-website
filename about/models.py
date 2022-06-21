@@ -43,3 +43,12 @@ class Skills(models.Model):
     def __str__(self):
         return self.name
 
+
+class Client(models.Model):
+
+    name = models.CharField(max_length=254)
+    client = models.ImageField()
+
+    def __str__(self):
+        return self.name
+
