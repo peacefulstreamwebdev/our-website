@@ -46,9 +46,6 @@
 
             <div class="entry-content">
             <p>{{ faq.answer }}</p>
-            <div class="read-more">
-                <a href="#">Read More</a>
-            </div>
             </div>
 
         </article><!-- End blog entry -->
@@ -80,50 +77,16 @@
             <div class="sidebar-item categories">
             <ul>
                 {% for category, length in category_data %}
-                <li><a href="#">{{ category.friendly_name }} <span>({{ length }})</span></a></li>
+                <li><a href="{% url 'faq' %}?category={{ category.name }}">{{ category.friendly_name }} <span>({{ length }})</span></a></li>
                 {% endfor %}
             </ul>
             </div><!-- End sidebar categories-->
-
-            <h3 class="sidebar-title">Recent Posts</h3>
-            <div class="sidebar-item recent-posts">
-            <div class="post-item clearfix">
-                <img src="{% static 'companypro/assets/img/blog/blog-recent-1.jpg' %}" alt="">
-                <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
-                <time datetime="2020-01-01">Jan 1, 2020</time>
-            </div>
-
-            <div class="post-item clearfix">
-                <img src="{% static 'companypro/assets/img/blog/blog-recent-2.jpg' %}" alt="">
-                <h4><a href="#">Quidem autem et impedit</a></h4>
-                <time datetime="2020-01-01">Jan 1, 2020</time>
-            </div>
-
-            <div class="post-item clearfix">
-                <img src="{% static 'companypro/assets/img/blog/blog-recent-3.jpg' %}" alt="">
-                <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
-                <time datetime="2020-01-01">Jan 1, 2020</time>
-            </div>
-
-            <div class="post-item clearfix">
-                <img src="{% static 'companypro/assets/img/blog/blog-recent-4.jpg' %}" alt="">
-                <h4><a href="#">Laborum corporis quo dara net para</a></h4>
-                <time datetime="2020-01-01">Jan 1, 2020</time>
-            </div>
-
-            <div class="post-item clearfix">
-                <img src="{% static 'companypro/assets/img/blog/blog-recent-5.jpg' %}" alt="">
-                <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
-                <time datetime="2020-01-01">Jan 1, 2020</time>
-            </div>
-
-            </div><!-- End sidebar recent posts-->
 
             <h3 class="sidebar-title">Tags</h3>
             <div class="sidebar-item tags">
             <ul>
                 {% for tag in tags %}
-                <li><a href="#">{{ tag.name }}</a></li>
+                <li><a href="{% url 'faq' %}?tags={{ tag.name }}">{{ tag.name }}</a></li>
                 {% endfor %}
             </ul>
             </div><!-- End sidebar tags-->
