@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'portfolio',
     'faq',
     'storages',
+    'taggit',
 ]
 
 MIDDLEWARE = [
