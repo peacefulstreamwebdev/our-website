@@ -35,7 +35,7 @@ def faq(request):
             if not query:
                 return redirect(reverse('faq'))
             
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(question__icontains=query) | Q(answer__icontains=query)
             faqs = faqs.filter(queries)
 
     context = {
