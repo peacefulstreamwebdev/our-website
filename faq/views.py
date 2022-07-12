@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from .models import Faq, FaqCategory
+from contact.models import Content
 from taggit.models import Tag
 from django.db.models import Q
 from django.core.paginator import Paginator
@@ -9,7 +10,8 @@ from django.core.paginator import Paginator
 def faq(request):
     '''A view to return the FAQ page'''
 
-    faqs = Faq.objects.all()
+    contact = Content.objects.all()[0]
+    faqs = Faq.objects.get_queryset().order_by('id')
     tags = Tag.objects.all()
     categories = FaqCategory.objects.all()
 
@@ -46,6 +48,7 @@ def faq(request):
 
     context = {
         'page': 'faq',
+        'contact': contact,
         'faqs': faqs,
         'tags': tags,
         'category_data': zip(categories, lengths),
