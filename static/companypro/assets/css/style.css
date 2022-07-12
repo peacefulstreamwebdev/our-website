@@ -114,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
 .header-social-links a:hover {
   color: #00bbe4;
 }
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .header-social-links {
     padding: 0 15px 0 0;
     border-left: 0;
@@ -1603,6 +1603,7 @@ section {
 }
 .blog .blog-pagination {
   color: #444444;
+  margin-bottom: 40px;
 }
 .blog .blog-pagination ul {
   display: flex;
@@ -1675,7 +1676,7 @@ section {
   line-height: 0;
 }
 .blog .sidebar .search-form form button:hover {
-  background: #1ecf3b;
+  background: #4ea1da;
 }
 .blog .sidebar .categories ul {
   list-style: none;
