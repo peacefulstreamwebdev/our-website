@@ -1241,6 +1241,12 @@ section {
   font-size: 14px;
   color: #444444;
 }
+.contact .info a {
+  padding: 0 0 0 18px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #444444;
+}
 .contact .info:hover i {
   background: #00bbe4;
   color: #fff;

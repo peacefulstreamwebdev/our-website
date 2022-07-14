@@ -1,4 +1,5 @@
 from django.db import models
+from sympy import matrix_multiply_elementwise
 
 # Create your models here.
 
@@ -65,3 +66,13 @@ class Client(models.Model):
     def __str__(self):
         return self.name
 
+
+class Testimonial(models.Model):
+
+    name = models.CharField(max_length=254)
+    role = models.CharField(max_length=254)
+    testimonial = models.TextField(max_length=2000)
+    image = models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name

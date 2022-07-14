@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import AboutContent, TeamContent, TeamMember, SkillsContent, Skills, Client
+from .models import AboutContent, TeamContent, TeamMember, SkillsContent, Skills, Client, Testimonial
 
 # Register your models here.
 
@@ -92,9 +92,26 @@ class ClientAdmin(admin.ModelAdmin):
     ordering = ('name',)
 
 
+class TestimonialAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'role',
+    )
+
+    fields = (
+        'name',
+        'role',
+        'testimonial',
+        'image',
+    )
+
+    ordering = ('name',)
+
+
 admin.site.register(AboutContent, AboutContentAdmin)
 admin.site.register(TeamContent, TeamContentAdmin)
 admin.site.register(TeamMember, TeamMemberAdmin)
 admin.site.register(SkillsContent, SkillsContentAdmin)
 admin.site.register(Skills, SkillsAdmin)
 admin.site.register(Client, ClientAdmin)
+admin.site.register(Testimonial, TestimonialAdmin)

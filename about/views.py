@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import TeamMember, SkillsContent, Skills, TeamContent, Client, AboutContent
+from .models import TeamMember, SkillsContent, Skills, TeamContent, Client, AboutContent, Testimonial
 from contact.models import Content
 
 # Create your views here.
@@ -48,10 +48,12 @@ def testimonials(request):
     '''A view to return the home page'''
 
     contact = Content.objects.all()[0]
+    testimonials = Testimonial.objects.all()
 
     context = {
         'page': 'about',
         'contact': contact,
+        'testimonials': testimonials,
     }
 
     return render(request, 'about/testimonials.html', context)
