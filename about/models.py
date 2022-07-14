@@ -1,5 +1,4 @@
 from django.db import models
-from sympy import matrix_multiply_elementwise
 
 # Create your models here.
 
