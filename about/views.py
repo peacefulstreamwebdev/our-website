@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import TeamMember, SkillsContent, Skills, TeamContent, Client
+from .models import TeamMember, SkillsContent, Skills, TeamContent, Client, AboutContent
 from contact.models import Content
 
 # Create your views here.
@@ -13,6 +13,7 @@ def about(request):
     skills_content = SkillsContent.objects.all()[0]
     team_content = TeamContent.objects.all()[0]
     clients = Client.objects.all()
+    about_content = AboutContent.objects.all()[0]
 
     context = {
         'page': 'about',
@@ -22,6 +23,7 @@ def about(request):
         'skills': skills,
         'team_content': team_content,
         'clients': clients,
+        'about_content': about_content,
     }
 
     return render(request, 'about/about.html', context)

@@ -1,7 +1,20 @@
-from tokenize import blank_re
 from django.db import models
 
 # Create your models here.
+
+class AboutContent(models.Model):
+
+    name = models.CharField(max_length=254)
+    title = models.CharField(max_length=254)
+    heading = models.CharField(max_length=254)
+    paragraph = models.TextField(max_length=2000)
+    bullet_one = models.CharField(max_length=254)
+    bullet_two = models.CharField(max_length=254)
+    bullet_three = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.name
+
 
 class TeamContent(models.Model):
 
