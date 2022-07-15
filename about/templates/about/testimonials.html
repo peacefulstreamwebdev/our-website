@@ -31,7 +31,11 @@
         {% if forloop.counter == 1 or forloop.counter == 2 %}
         <div class="col-lg-6" data-aos="fade-up">
         <div class="testimonial-item">
+            {% if testimonial.image %}
             <img src="{{ MEDIA_URL }}{{ testimonial.image }}" class="testimonial-img" alt="{{ testimonial.name }}">
+            {% else %}
+            <img src="{{ MEDIA_URL }}noimage.webp" class="img-fluid" alt="{{ testimonial.name }}">
+            {% endif %}
             <h3>{{ testimonial.name }}</h3>
             <h4>{{ testimonial.role }}</h4>
             <p>

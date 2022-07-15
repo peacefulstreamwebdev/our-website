@@ -101,3 +101,11 @@
         stroke: #fff;
     }
 }
+
+/* Media Queries */
+
+@media (max-width: 991px) {
+    .faq-sidebar {
+        margin-left: 0px !important;
+    }
+}
