@@ -32,6 +32,10 @@
     color: rgb(71, 42, 71);
 }
 
+.member-img {
+    aspect-ratio: 1 / 1;
+}
+
 /* Contact - contact/templates/contact/contact.html */
 
 .checkmark {

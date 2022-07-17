@@ -37,16 +37,26 @@
         <div class="member" data-aos="fade-up">
             <div class="member-img">
             {% if member.image %}
-            <img src="{{ member.image }}" class="img-fluid" alt="{{ member.name }} Portrait Picture">
+            <img src="{{ MEDIA_URL }}{{ member.image }}" class="img-fluid" alt="{{ member.name }} Portrait Picture">
             {% else %}
             <img src="{{ MEDIA_URL }}noimage.webp" class="img-fluid" alt="{{ member.name }} Portrait Picture">
             {% endif %}
+            {% if member.twitter or member.facebook or member.instagram or member.linkedin %}
             <div class="social">
+                {% if member.twitter %}
                 <a href="{{ member.twitter }}"><i class="bi bi-twitter"></i></a>
+                {% endif %}
+                {% if member.facebook %}
                 <a href="{{ member.facebook }}"><i class="bi bi-facebook"></i></a>
+                {% endif %}
+                {% if member.instagram %}
                 <a href="{{ member.instagram }}"><i class="bi bi-instagram"></i></a>
+                {% endif %}
+                {% if member.linkedin %}
                 <a href="{{ member.linkedin }}"><i class="bi bi-linkedin"></i></a>
+                {% endif %}
             </div>
+            {% endif %}
             </div>
             <div class="member-info">
             <h4>{{ member.name }}</h4>

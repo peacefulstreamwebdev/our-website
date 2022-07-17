@@ -30,7 +30,7 @@ def contact(request):
         contact_notification_message_wrapper = EmailMessage(
             f'Hey Peaceful Stream Development! {name} is trying to contact you from your website!',
             contact_notification_message,
-            to=[settings.DEFAULT_FROM_EMAIL]
+            to=[settings.DEFAULT_TO_EMAIL]
         )
 
         contact_notification_message_wrapper.send()

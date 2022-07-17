@@ -63,7 +63,7 @@
         <div class="member" data-aos="fade-up">
             <div class="member-img">
             {% if member.image %}
-            <img src="{{ member.image }}" class="img-fluid" alt="{{ member.name }} Portrait Picture">
+            <img src="{{ MEDIA_URL }}{{ member.image }}" class="img-fluid" alt="{{ member.name }} Portrait Picture">
             {% else %}
             <img src="{{ MEDIA_URL }}noimage.webp" class="img-fluid" alt="{{ member.name }} Portrait Picture">
             {% endif %}
