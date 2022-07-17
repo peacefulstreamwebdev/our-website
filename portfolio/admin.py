@@ -23,6 +23,10 @@ class ProjectAdmin(admin.ModelAdmin):
         'image_two',
         'image_three',
         'link',
+        'date_completed',
+        'client',
+        'project_title',
+        'project_description',
     )
 
     ordering = ('name',)
