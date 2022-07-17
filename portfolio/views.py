@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from contact.models import Content
 from .models import Project, ProjectCategory
 
@@ -19,3 +19,17 @@ def portfolio(request):
     }
 
     return render(request, 'portfolio/portfolio.html', context)
+
+
+def portfolio_detail(request, item_id):
+
+    project = get_object_or_404(Project, pk=item_id)
+    contact = Content.objects.all()[0]
+
+    context = {
+        'page': 'portfolio',
+        'contact': contact,
+        'project': project,
+    }
+
+    return render(request, 'portfolio/portfolio-detail.html', context)

@@ -21,6 +21,8 @@ class Project(models.Model):
 
     name = models.CharField(max_length=254)
     image = models.ImageField()
+    image_two = models.ImageField(null=True, blank=True)
+    image_three = models.ImageField(null=True, blank=True)
     category = models.ForeignKey('ProjectCategory', null=True, blank=True, on_delete=models.SET_NULL)
     link = models.URLField(max_length=254, null=True, blank=True)
 

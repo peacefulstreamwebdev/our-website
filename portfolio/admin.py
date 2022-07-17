@@ -20,6 +20,8 @@ class ProjectAdmin(admin.ModelAdmin):
         'name',
         'category',
         'image',
+        'image_two',
+        'image_three',
         'link',
     )
 
