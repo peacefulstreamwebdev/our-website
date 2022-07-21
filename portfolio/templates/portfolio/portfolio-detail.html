@@ -59,6 +59,7 @@
             <li><strong>Client</strong>: {{ project.client }}</li>
             {% else %}
             <li><strong>Client</strong>: Personal Project</li>
+            {% endif %}
             <li><strong>Project date</strong>: {{ project.date_completed }}</li>
             <li><strong>Project URL</strong>: <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer">{{ project.link }}</a></li>
             </ul>
