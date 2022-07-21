@@ -29,7 +29,7 @@ class Project(models.Model):
     date_completed = models.DateField()
     client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True, blank=True)
     project_title = models.CharField(max_length=254)
-    project_description = models.CharField(max_length=2000)
+    project_description = models.TextField(max_length=2000)
 
     def __str__(self):
         return self.name

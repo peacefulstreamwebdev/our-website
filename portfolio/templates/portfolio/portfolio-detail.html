@@ -55,9 +55,12 @@
             <h3>Project information</h3>
             <ul>
             <li><strong>Category</strong>: {{ project.category.friendly_name }}</li>
+            {% if project.client %}
             <li><strong>Client</strong>: {{ project.client }}</li>
+            {% else %}
+            <li><strong>Client</strong>: Personal Project</li>
             <li><strong>Project date</strong>: {{ project.date_completed }}</li>
-            <li><strong>Project URL</strong>: <a href="{{ project.link }}">{{ project.link }}</a></li>
+            <li><strong>Project URL</strong>: <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer">{{ project.link }}</a></li>
             </ul>
         </div>
         <div class="portfolio-description">
