@@ -37,12 +37,14 @@ def team(request):
 
     members = TeamMember.objects.all()
     contact = Content.objects.all()[0]
+    team_content = TeamContent.objects.all()[0]
     tidio_id = settings.TIDIO_ID
 
     context = {
         'page': 'about',
         'members': members,
         'contact': contact,
+        'team_content': team_content,
         'tidio_id': tidio_id,
     }
 
