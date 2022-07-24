@@ -54,12 +54,35 @@
 
         <div class="row">
             {% for feature in features %}
+            {% if forloop.counter == 1 %}
             <div class="col-lg-3 col-md-4">
             <div class="icon-box">
                 <i class="{{ feature.icon_class }}" style="color: {{ feature.icon_color }};"></i>
                 <h3><a href="">{{ feature.name }}</a></h3>
             </div>
             </div>
+            {% elif forloop.counter == 2 or forloop.counter == 3 %}
+            <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box">
+                <i class="{{ feature.icon_class }}" style="color: {{ feature.icon_color }};"></i>
+                <h3><a href="">{{ feature.name }}</a></h3>
+            </div>
+            </div>
+            {% elif forloop.counter == 4 %}
+            <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+                <i class="{{ feature.icon_class }}" style="color: {{ feature.icon_color }};"></i>
+                <h3><a href="">{{ feature.name }}</a></h3>
+            </div>
+            </div>
+            {% else %}
+            <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+                <i class="{{ feature.icon_class }}" style="color: {{ feature.icon_color }};"></i>
+                <h3><a href="">{{ feature.name }}</a></h3>
+            </div>
+            </div>
+            {% endif %}
             {% endfor %}
         </div>
 
