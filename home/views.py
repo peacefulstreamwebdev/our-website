@@ -13,7 +13,7 @@ def home(request):
 
     contact = Content.objects.all()[0]
     services = Service.objects.all()
-    slides = SlideContent.objects.all()
+    slides = SlideContent.objects.get_queryset().order_by('id')
     projects = Project.objects.all()
     categories = ProjectCategory.objects.all()
     clients = Client.objects.all()

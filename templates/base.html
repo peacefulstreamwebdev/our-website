@@ -55,8 +55,21 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
+          {% if page == 'home' %}
           <li><a href="{% url 'home' %}" class="active">Home</a></li>
+          {% else %}
+          <li><a href="{% url 'home' %}">Home</a></li>
+          {% endif %}
 
+          {% if page == 'about' %}
+          <li class="dropdown"><a href="#" class="active"><span>About</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{% url 'about' %}">About Us</a></li>
+              <li><a href="{% url 'team' %}">Team</a></li>
+              <li><a href="{% url 'testimonials' %}">Testimonials</a></li>
+            </ul>
+          </li>
+          {% else %}
           <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="{% url 'about' %}">About Us</a></li>
@@ -64,12 +77,32 @@
               <li><a href="{% url 'testimonials' %}">Testimonials</a></li>
             </ul>
           </li>
+          {% endif %}
 
+          {% if page == 'services' %}
+          <li><a href="{% url 'services' %}" class="active">Services</a></li>
+          {% else %}
           <li><a href="{% url 'services' %}">Services</a></li>
-          <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
-          <li><a href="{% url 'faq' %}">FAQ</a></li>
-          <li><a href="{% url 'contact' %}">Contact</a></li>
+          {% endif %}
 
+          {% if page == 'portfolio' %}
+          <li><a href="{% url 'portfolio' %}" class="active">Portfolio</a></li>
+          {% else %}
+          <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+          {% endif %}
+
+          {% if page == 'faq' %}
+          <li><a href="{% url 'faq' %}" class="active">FAQ</a></li>
+          {% else %}
+          <li><a href="{% url 'faq' %}">FAQ</a></li>
+          {% endif %}
+
+          {% if page == 'contact' %}
+          <li><a href="{% url 'contact' %}" class="active">Contact</a></li>
+          {% else %}
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          {% endif %}
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
