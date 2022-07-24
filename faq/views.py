@@ -4,6 +4,7 @@ from contact.models import Content
 from taggit.models import Tag
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.conf import settings
 
 # Create your views here.
 
@@ -14,6 +15,7 @@ def faq(request):
     faqs = Faq.objects.get_queryset().order_by('id')
     tags = Tag.objects.all()
     categories = FaqCategory.objects.all()
+    tidio_id = settings.TIDIO_ID
 
     lengths = []
     for category in categories:
@@ -54,6 +56,7 @@ def faq(request):
         'category_data': zip(categories, lengths),
         'search_term': query,
         'page_obj': page_obj,
+        'tidio_id': tidio_id,
     }
 
     return render(request, 'faq/faq.html', context)

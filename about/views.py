@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import TeamMember, SkillsContent, Skills, TeamContent, Client, AboutContent, Testimonial
 from contact.models import Content
+from django.conf import settings
 
 # Create your views here.
 
@@ -14,6 +15,7 @@ def about(request):
     team_content = TeamContent.objects.all()[0]
     clients = Client.objects.all()
     about_content = AboutContent.objects.all()[0]
+    tidio_id = settings.TIDIO_ID
 
     context = {
         'page': 'about',
@@ -24,6 +26,7 @@ def about(request):
         'team_content': team_content,
         'clients': clients,
         'about_content': about_content,
+        'tidio_id': tidio_id,
     }
 
     return render(request, 'about/about.html', context)
@@ -34,11 +37,13 @@ def team(request):
 
     members = TeamMember.objects.all()
     contact = Content.objects.all()[0]
+    tidio_id = settings.TIDIO_ID
 
     context = {
         'page': 'about',
         'members': members,
         'contact': contact,
+        'tidio_id': tidio_id,
     }
 
     return render(request, 'about/team.html', context)
@@ -49,11 +54,13 @@ def testimonials(request):
 
     contact = Content.objects.all()[0]
     testimonials = Testimonial.objects.all()
+    tidio_id = settings.TIDIO_ID
 
     context = {
         'page': 'about',
         'contact': contact,
         'testimonials': testimonials,
+        'tidio_id': tidio_id,
     }
 
     return render(request, 'about/testimonials.html', context)

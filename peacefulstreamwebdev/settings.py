@@ -148,6 +148,9 @@ USE_TZ = True
 
 SITE_ID= 1
 
+TIDIO_ID = os.environ.get("TIDIO_ID")
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
