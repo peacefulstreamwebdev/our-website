@@ -1,5 +1,7 @@
 {% load static %}
 {% load service_tools %}
+{% load contact_tools %}
+{% load tidio_tools %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -128,12 +130,14 @@
 
           <div class="col-lg-5 col-md-6 footer-contact">
             <h3>Peaceful Stream Development</h3>
+            {% for contact in contact_info|contact %}
             <p>
               {{ contact.address }}<br>
               {{ contact.address_two }}<br>
               <strong>Phone:</strong> {{ contact.phone }}<br>
               <strong>Email:</strong> {{ contact.email }}<br>
             </p>
+            {% endfor %}
           </div>
 
           <div class="col-lg-4 col-md-6 footer-links">
@@ -196,7 +200,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
   <!-- Tidio -->
-  <script src="//code.tidio.co/{{ tidio_id }}.js"></script>
+  <script src="//code.tidio.co/{{ id|tidio }}.js"></script>
 
   {% if page == 'contact' %}
   <script src="{% static 'js/contact.js' %}"></script>

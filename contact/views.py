@@ -10,7 +10,6 @@ def contact(request):
     '''A view to return the home page'''
 
     contact = Content.objects.all()[0]
-    tidio_id = settings.TIDIO_ID
 
     if request.method == "POST":
         
@@ -53,7 +52,6 @@ def contact(request):
     context = {
         'page': 'contact',
         'contact': contact,
-        'tidio_id': tidio_id,
     }
 
     return render(request, 'contact/contact.html', context)

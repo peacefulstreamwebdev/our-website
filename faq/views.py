@@ -11,11 +11,9 @@ from django.conf import settings
 def faq(request):
     '''A view to return the FAQ page'''
 
-    contact = Content.objects.all()[0]
     faqs = Faq.objects.get_queryset().order_by('id')
     tags = Tag.objects.all()
     categories = FaqCategory.objects.all()
-    tidio_id = settings.TIDIO_ID
 
     lengths = []
     for category in categories:
@@ -50,13 +48,11 @@ def faq(request):
 
     context = {
         'page': 'faq',
-        'contact': contact,
         'faqs': faqs,
         'tags': tags,
         'category_data': zip(categories, lengths),
         'search_term': query,
         'page_obj': page_obj,
-        'tidio_id': tidio_id,
     }
 
     return render(request, 'faq/faq.html', context)
