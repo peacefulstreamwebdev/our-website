@@ -798,7 +798,7 @@ section {
   border-left: 1px solid #ececec;
 }
 .clients .client-logo {
-  padding: 20px;
+  padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -806,11 +806,11 @@ section {
   border-bottom: 1px solid #ececec;
   overflow: hidden;
   background: #fff;
-  height: 100px;
+  height: 150px;
 }
 .clients .client-logo img {
   transition: all 0.3s ease-in-out;
-  height: 36px;
+  height: 130px;
   filter: grayscale(100%);
 }
 .clients .client-logo:hover img {
