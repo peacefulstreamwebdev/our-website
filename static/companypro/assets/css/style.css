@@ -812,7 +812,7 @@ section {
 }
 .clients .client-logo img {
   transition: all 0.3s ease-in-out;
-  height: 100px;
+  width: 75%;
   filter: grayscale(100%);
 }
 .clients .client-logo:hover img {
