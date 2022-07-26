@@ -794,23 +794,25 @@ section {
 # Clients
 --------------------------------------------------------------*/
 .clients .clients-wrap {
-  border-top: 1px solid #ececec;
   border-left: 1px solid #ececec;
+}
+.clients .clients-wrap .col-6 {
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+  border-right: 1px solid #ececec;
 }
 .clients .client-logo {
   padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid #ececec;
-  border-bottom: 1px solid #ececec;
   overflow: hidden;
   background: #fff;
   height: 150px;
 }
 .clients .client-logo img {
   transition: all 0.3s ease-in-out;
-  height: 130px;
+  height: 100px;
   filter: grayscale(100%);
 }
 .clients .client-logo:hover img {
