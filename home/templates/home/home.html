@@ -63,9 +63,15 @@
             {{ about_content.paragraph }}
         </p>
         <ul>
+            {% if about_content.bullet_one %}
             <li><i class="ri-check-double-line"></i> {{ about_content.bullet_one }}</li>
+            {% endif %}
+            {% if about_content.bullet_two %}
             <li><i class="ri-check-double-line"></i> {{ about_content.bullet_two }}</li>
+            {% endif %}
+            {% if about_content.bullet_three %}
             <li><i class="ri-check-double-line"></i> {{ about_content.bullet_three }}</li>
+            {% endif %}
         </ul>
         </div>
     </div>
