@@ -8,9 +8,9 @@ class AboutContent(models.Model):
     title = models.CharField(max_length=254)
     heading = models.CharField(max_length=254)
     paragraph = models.TextField(max_length=2000)
-    bullet_one = models.CharField(max_length=254)
-    bullet_two = models.CharField(max_length=254)
-    bullet_three = models.CharField(max_length=254)
+    bullet_one = models.CharField(max_length=254, null=True, blank=True)
+    bullet_two = models.CharField(max_length=254, null=True, blank=True)
+    bullet_three = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
         return self.name

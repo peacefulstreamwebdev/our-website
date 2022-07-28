@@ -113,3 +113,9 @@
         margin-left: 0px !important;
     }
 }
+
+@media (max-width: 500px) {
+    .clients .client-logo img {
+        width: 100% !important;
+    }
+}
