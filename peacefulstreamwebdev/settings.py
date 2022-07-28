@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'storages',
     'taggit',
     'crispy_forms',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -154,6 +155,9 @@ USE_TZ = True
 SITE_ID= 1
 
 TIDIO_ID = os.environ.get("TIDIO_ID")
+
+RECAPTCHA_PUBLIC_KEY = os.environ.get("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = os.environ.get("RECAPTCHA_PRIVATE_KEY")
 
 
 # Static files (CSS, JavaScript, Images)

@@ -18,6 +18,7 @@ function validateEmail(email) {
 };
 
 $(document).ready(function(){
+    $('.g-recaptcha').attr("data-callback", "callback");
     var count = 0;
     $('#contact-button').on('click', function() {
       if (count == 1) {
@@ -33,14 +34,22 @@ $(document).ready(function(){
       } else if ($("input[name='email']").val() == "") {
         //do nothing
       } else {
-        var emailIsValid = validateEmail($("input[name='email']").val());
-        if (emailIsValid) {
-            count = count + 1;
-            contactForm();
-            $("#contact-button").replaceWith('<div class="success-animation"><svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg></div>');
+        if (grecaptcha.getResponse().length !== 0) {
+          var emailIsValid = validateEmail($("input[name='email']").val());
+          if (emailIsValid) {
+              count = count + 1;
+              contactForm();
+              $("#contact-button").replaceWith('<div class="success-animation"><svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" /><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg></div>');
+          } else {
+          //do nothing
+          };
         } else {
-        //do nothing
+          //do nothing
         };
       };
     });
 });
+
+function callback(){
+  //pass
+};

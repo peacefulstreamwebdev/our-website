@@ -3,6 +3,8 @@ from .models import Content, BlackList
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.conf import settings
+from .forms import ContactForm
+from django.conf import settings
 
 # Create your views here.
 
@@ -10,9 +12,10 @@ def contact(request):
     '''A view to return the home page'''
 
     contact = Content.objects.all()[0]
+    recaptcha_public_key = settings.RECAPTCHA_PUBLIC_KEY
 
     if request.method == "POST":
-        
+        form = ContactForm(request.POST)
         form_data = request.body.decode().split("=")
         name = form_data[2].split('&')[0].replace('%20', ' ')
         user_email = form_data[3].split('&')[0].replace('%40', '@')
@@ -49,9 +52,14 @@ def contact(request):
 
             contact_notification_message_wrapper.send()
 
+    else:
+        form = ContactForm()
+
     context = {
         'page': 'contact',
         'contact': contact,
+        'form': form,
+        'recaptcha_public_key': recaptcha_public_key,
     }
 
     return render(request, 'contact/contact.html', context)
