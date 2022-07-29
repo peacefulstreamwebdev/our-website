@@ -4,7 +4,6 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.conf import settings
 from .forms import ContactForm
-from django.conf import settings
 
 # Create your views here.
 
@@ -12,7 +11,6 @@ def contact(request):
     '''A view to return the home page'''
 
     contact = Content.objects.all()[0]
-    recaptcha_public_key = settings.RECAPTCHA_PUBLIC_KEY
 
     if request.method == "POST":
         form = ContactForm(request.POST)
@@ -59,7 +57,6 @@ def contact(request):
         'page': 'contact',
         'contact': contact,
         'form': form,
-        'recaptcha_public_key': recaptcha_public_key,
     }
 
     return render(request, 'contact/contact.html', context)

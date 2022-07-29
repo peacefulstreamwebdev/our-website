@@ -36,7 +36,9 @@
             <div class="col-lg-4 info">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
+                {% if contact.address %}
                 <p>{{ contact.address }}</p>
+                {% endif %}
                 <p>{{ contact.address_two }}</p>
             </div>
 
