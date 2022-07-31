@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'services',
     'portfolio',
     'faq',
+    'profiles',
     'storages',
     'taggit',
     'crispy_forms',

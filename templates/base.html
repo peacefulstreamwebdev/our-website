@@ -112,7 +112,7 @@
           <li class="dropdown"><a href="#"><span>Hello, {{ user.username }}</span> <i class="bi bi-chevron-down"></i></a>
           {% endif %}
             <ul>
-                <li><a href="#">My Profile</a></li>
+                <li><a href="{% url 'me' %}">My Profile</a></li>
                 <li><a href="#">My Projects</a></li>
                 {% if request.user.is_superuser %}
                   <li><a href="{% url 'admin:index' %}">Site Management</a></li>
