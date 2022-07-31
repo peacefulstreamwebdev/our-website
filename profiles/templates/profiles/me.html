@@ -29,6 +29,10 @@
             <p><strong>Last Name:</strong> {{ user.last_name }}</p>
             <p><strong>Email:</strong> {{ user.email }}</p>
             <p><strong>Phone Number:</strong> {{ profile.default_phone_number }}</p>
+            <div class="wrapper text-center mt-3">
+                <a class="btn btn-secondary login-button" href="{% url 'edit_profile' %}">Edit Profile</a>
+                <a class="btn btn-primary login-button" href="{% url 'account_change_password' %}">Change Password</a>
+            </div>
         </div>
     </div>
     </div>
