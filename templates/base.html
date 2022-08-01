@@ -113,9 +113,16 @@
           {% endif %}
             <ul>
                 <li><a href="{% url 'me' %}">My Profile</a></li>
-                <li><a href="#">My Projects</a></li>
                 {% if request.user.is_superuser %}
+                  <li class="dropdown"><a href="#"><span>Projects</span> <i class="bi bi-chevron-right"></i></a>
+                    <ul>
+                      <li><a href="#">Active Projects</a></li>
+                      <li><a href="#">All Projects</a></li>
+                    </ul>
+                  </li>
                   <li><a href="{% url 'admin:index' %}">Site Management</a></li>
+                {% else %}
+                <li><a href="#">My Projects</a></li>
                 {% endif %}
                 <li><a href="{% url 'account_logout' %}">Logout</a></li>
             </ul>
@@ -142,6 +149,24 @@
 
   {% block content %}
   {% endblock %}
+
+  {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                    {% include 'includes/toasts/toast_error.html' %}
+                {% elif level == 30 %}
+                    {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                    {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                    {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+  {% endif %}
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
@@ -221,6 +246,9 @@
 
   <!-- JQuery CDN -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- Toasts -->
+  <script src="{% static 'js/toast.js' %}"></script>
 
   <!-- Tidio -->
   <script src="//code.tidio.co/{{ id|tidio }}.js"></script>

@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import UserProfileForm, UserForm
 from allauth.account.models import EmailAddress
+from django.contrib import messages
 
 # Create your views here.
 
@@ -22,14 +23,15 @@ def me(request):
                 if str(request.POST.get('email')) != str(user_email):
                     new_email = request.POST.get('email')
                     profile.add_email_address(request, new_email)
+                    messages.success(request, 'Profile updated successfully, please confirm the new email in your profile by clicking the link in the email sent to you.')
                 else:
-                    pass
+                    messages.success(request, 'Profile updated successfully.')
                 form.save()
                 form_two.save()
             except EmailAddress.MultipleObjectsReturned:
-                pass
+                messages.error(request, 'Please confirm the email in your profile before attempting to update it again.')
         else:
-            pass
+            messages.error(request, 'Update failed. Please ensure the form is valid.')
     else:
         form = UserProfileForm(instance=profile)
         form_two = UserForm(instance=user)
