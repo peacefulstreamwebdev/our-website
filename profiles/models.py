@@ -12,6 +12,7 @@ class UserProfile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
+    company = models.CharField(max_length=254, null=True, blank=True)
 
     def add_email_address(self, request, new_email):
         return EmailAddress.objects.add_email(request, self.user, new_email, confirm=True)

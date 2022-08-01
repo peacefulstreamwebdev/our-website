@@ -25,11 +25,20 @@
         <div class="info-wrap">
             <h2 class="logo-font mb-4 text-center">My Profile</h2>
             <p><strong>Username:</strong> {{ user.username }}</p>
+            {% if user.first_name %}
             <p><strong>First Name:</strong> {{ user.first_name }}</p>
+            {% endif %}
+            {% if user.last_name %}
             <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+            {% endif %}
             <p><strong>Email:</strong> {{ user.email }}</p>
+            {% if profile.default_phone_number %}
             <p><strong>Phone Number:</strong> {{ profile.default_phone_number }}</p>
-            <div class="wrapper text-center mt-3">
+            {% endif %}
+            {% if profile.company %}
+            <p><strong>Company:</strong> {{ profile.company }}</p>
+            {% endif %}
+            <div class="wrapper text-center mt-4">
                 <a class="btn btn-secondary login-button" href="{% url 'edit_profile' %}">Edit Profile</a>
                 <a class="btn btn-primary login-button" href="{% url 'account_change_password' %}">Change Password</a>
             </div>

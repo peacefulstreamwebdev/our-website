@@ -5,6 +5,7 @@ class UserProfileAdmin(admin.ModelAdmin):
     list_display = (
         'user',
         'default_phone_number',
+        'company',
     )
 
     ordering = ('user',)

@@ -15,6 +15,7 @@ class UserProfileForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         placeholders = {
             'default_phone_number': 'Phone Number',
+            'company': 'Company',
         }
 
         for field in self.fields:
