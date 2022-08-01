@@ -37,6 +37,9 @@ class ProjectAdmin(admin.ModelAdmin):
         'name',
         'user',
         'repo',
+        'progress',
+        'last_updated',
+        'latest_update',
         'completed',
     )
 

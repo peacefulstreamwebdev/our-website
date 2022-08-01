@@ -139,6 +139,16 @@
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.btn-primary {
+    background-color: #00bbe4;
+    border-color: #00bbe4;
+}
+
+.btn-primary:hover {
+    background-color: #018baa;
+    border-color: #018baa;
+}
+
 /* Profile Section - profiles/templates/profiles/me.html */
 
 .profile-section .info-wrap {
@@ -148,6 +158,30 @@
 
 .profile-section .info-wrap p {
     margin-left: 7%;
+}
+
+/* Projects Section - projects/templates/projects/projects.html */
+
+.progress-bar {
+    height: 10px;
+    transition: 0.9s;
+    background-color: #1bbd36 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--bs-progress-bar-color);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.faq .faq-list a {
+    padding: 0px;
+}
+
+.project-details-button {
+    width: 25%;
+    padding: 6px 12px !important;
 }
 
 /* Toasts - templates/includes/toasts */
@@ -187,10 +221,22 @@
     }
 }
 
+@media (max-width: 768px) {
+    .project-details-button {
+        width: 100%;
+    }
+}
+
 @media (max-width: 500px) {
     .clients .client-logo img {
         width: 100% !important;
     }
+}
+
+@media (max-width: 390px) {
+    .profile-section .info-wrap p {
+        margin-left: 0%;
+    } 
 }
 
 @media (max-width: 374px) {

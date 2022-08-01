@@ -10,13 +10,18 @@ def all_projects(request):
 
     if request.user.is_superuser:
         projects = Project.objects.all()
+        heading = 'All Projects'
     else:
         projects = Project.objects.filter(user=request.user)
+        heading = 'My Projects'
 
+    stages = Stage.objects.all()
     template = 'projects/projects.html'
     
     context = {
         'projects': projects,
+        'heading': heading,
+        'stages': stages,
     }
 
     return render(request, template, context)
