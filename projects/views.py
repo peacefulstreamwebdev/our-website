@@ -49,7 +49,7 @@ def project(request, project_id):
     """View for single project"""
 
     project = get_object_or_404(Project, project_id=project_id)
-    stages = Stage.objects.filter(project=project)
+    stages = Stage.objects.filter(project=project).order_by('target_date')
 
     context = {
         'project': project,

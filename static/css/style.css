@@ -184,6 +184,15 @@
     padding: 6px 12px !important;
 }
 
+.stages-content i {
+    font-size: .75rem;
+}
+
+.stages-content .progress {
+    margin: 0 auto;
+    width: 75%;
+}
+
 /* Toasts - templates/includes/toasts */
 
 .message-container {
@@ -223,6 +232,10 @@
 
 @media (max-width: 768px) {
     .project-details-button {
+        width: 100%;
+    }
+
+    .stages-content .progress {
         width: 100%;
     }
 }
