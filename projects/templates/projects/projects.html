@@ -22,6 +22,8 @@
 <section id="faq" class="faq section-bg">
 <div class="container" data-aos="fade-up">
 
+    {% if projects %}
+
     <div class="section-title">
         <h2>{{ heading }}</h2>
     </div>
@@ -51,6 +53,17 @@
         {% endfor %}
     </ul>
     </div>
+
+    {% else %}
+
+    <div class="row wrapper justify-content-center">
+        <img src="{{ MEDIA_URL }}x.png" alt="No Projects to Display" style="width: 360px; height: 340px;">
+    </div>
+
+    <div class="row wrapper justify-content-center">
+        <p class="text-center">No projects found... if you'd like to consult us about a project, please contact us <a href="{% url 'contact' %}">here</a> or use the chat bot to get in touch with us.</p>
+    </div>
+    {% endif %}
 
 </div>
 </section><!-- End Projects Section -->
