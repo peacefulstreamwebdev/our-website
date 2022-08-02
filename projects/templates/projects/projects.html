@@ -57,11 +57,11 @@
     {% else %}
 
     <div class="row wrapper justify-content-center">
-        <img src="{{ MEDIA_URL }}search.png" alt="No Projects to Display" style="width: 360px; height: 340px;">
+        <img src="{{ MEDIA_URL }}search.png" alt="No Projects to Display" style="width: 260px; height: 240px;">
     </div>
 
     <div class="row wrapper justify-content-center">
-        <p class="text-center">No projects found... if you'd like to consult us about a project, please contact us <a href="{% url 'contact' %}">here</a> or use the chat bot to get in touch with us.</p>
+        <p class="text-center mt-4">No projects found... if you'd like to consult us about a project, please contact us <a href="{% url 'contact' %}">here</a> or use the chat bot to get in touch with us.</p>
     </div>
     {% endif %}
 

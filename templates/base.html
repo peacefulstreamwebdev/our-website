@@ -116,7 +116,7 @@
                 {% if request.user.is_superuser %}
                   <li class="dropdown"><a href="#"><span>Projects</span> <i class="bi bi-chevron-right"></i></a>
                     <ul>
-                      <li><a href="#">Active Projects</a></li>
+                      <li><a href="{% url 'active_projects' %}">Active Projects</a></li>
                       <li><a href="{% url 'all_projects' %}">All Projects</a></li>
                     </ul>
                   </li>

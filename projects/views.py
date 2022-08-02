@@ -32,11 +32,13 @@ def active_projects(request):
     """View for active projects page"""
 
     projects = Project.objects.filter(completed=False)
+    heading = 'Active Projects'
 
     template = 'projects/projects.html'
     
     context = {
         'projects': projects,
+        'heading': heading,
     }
 
     return render(request, template, context)
