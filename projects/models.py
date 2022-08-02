@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
-from datetime import datetime
+from django.utils import timezone
 import random
 import string
 
@@ -16,7 +16,7 @@ class Stage(models.Model):
     progress = models.IntegerField(null=True, blank=True)
     target_date = models.DateField(null=True, blank=True)
     latest_update = models.TextField(max_length=2000, null=True, blank=True)
-    date_updated = models.DateField(null=True, blank=True)
+    date_updated = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -32,7 +32,7 @@ class Project(models.Model):
     repo = models.CharField(max_length=254)
     date_created = models.DateField(auto_now_add=True)
     progress = models.IntegerField(null=True, blank=True)
-    last_updated = models.DateField(null=True, blank=True)
+    last_updated = models.DateTimeField(null=True, blank=True)
     latest_update = models.TextField(max_length=2000, null=True, blank=True)
     completed = models.BooleanField(default=False)
 
@@ -73,7 +73,7 @@ def latest_date_updated(sender, instance, **kwargs):
     Create or update the user profile
     """
     if instance.latest_update != None:
-        instance.date_updated = datetime.now()
+        instance.date_updated = timezone.now()
     else:
         pass
 

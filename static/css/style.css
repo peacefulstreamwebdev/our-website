@@ -165,7 +165,7 @@
 .progress-bar {
     height: 10px;
     transition: 0.9s;
-    background-color: #1bbd36 !important;
+    background-color: #00bbe4 !important;
     display: flex;
     flex-direction: column;
     justify-content: center;

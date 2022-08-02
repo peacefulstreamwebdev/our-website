@@ -43,7 +43,7 @@
                 <div class="progress-bar" role="progressbar" aria-valuenow="{{ project.progress }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ project.progress }}%"></div>
             </div>
             </div>
-            <p style="padding-top: 0px"><strong>Last Update:</strong> {{ project.last_updated }}</p>
+            <p style="padding-top: 0px"><strong>Last Update:</strong> {{ project.last_updated }} EST</p>
             <p class="mt-2"><strong>Latest Update:</strong> {{ project.latest_update }}</p>
             <div class="wrapper text-center mt-3">
                 <a class= "btn btn-primary project-details-button" href="{% url 'project' project.project_id %}">More Details <i class="fa-solid fa-arrow-right-long"></i></a>
@@ -57,7 +57,7 @@
     {% else %}
 
     <div class="row wrapper justify-content-center">
-        <img src="{{ MEDIA_URL }}x.png" alt="No Projects to Display" style="width: 360px; height: 340px;">
+        <img src="{{ MEDIA_URL }}search.png" alt="No Projects to Display" style="width: 360px; height: 340px;">
     </div>
 
     <div class="row wrapper justify-content-center">
