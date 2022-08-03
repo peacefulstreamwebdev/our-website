@@ -240,6 +240,12 @@
     }
 }
 
+@media (max-width: 767px) {
+    .github-column {
+        margin-top: 24px;
+    }
+}
+
 @media (max-width: 500px) {
     .clients .client-logo img {
         width: 100% !important;

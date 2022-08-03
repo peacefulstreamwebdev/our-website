@@ -18,6 +18,8 @@
     </div>
 </section><!-- End Breadcrumbs -->
 
+{% if stages %}
+
 <!-- ======= Stages Section ======= -->
 <section id="stages" class="stages skills section-bg">
     <div class="container" data-aos="fade-up">
@@ -55,15 +57,52 @@
             </svg>
             <i class="bi bi-chat-dots"></i>
             </div>
-            <h4>Latest Update</h4>
+            <h4>Latest Developer Update</h4>
             <p>{{ project.last_updated }} EST</p>
             <p class="mt-2">{{ project.latest_update }}</p>
+        </div>
+        </div>
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch github-column" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box iconbox-black">
+            <div class="icon">
+            <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,532.3542879108572C369.38199826031484,532.3153073249985,429.10787420159085,491.63046689027357,474.5244479745417,439.17860296908856C522.8885846962883,383.3225815378663,569.1668002868075,314.3205725914397,550.7432151929288,242.7694973846089C532.6665558377875,172.5657663291529,456.2379748765914,142.6223662098291,390.3689995646985,112.34683881706744C326.66090330228417,83.06452184765237,258.84405631176094,53.51806209861945,193.32584062364296,78.48882559362697C121.61183558270385,105.82097193414197,62.805066853699245,167.19869350419734,48.57481801355237,242.6138429142374C34.843463184063346,315.3850353017275,76.69343916112496,383.4422959591041,125.22947124332185,439.3748458443577C170.7312796277747,491.8107796887764,230.57421082200815,532.3932930995766,300,532.3542879108572"></path>
+            </svg>
+            <i class="bi bi-github"></i>
+            </div>
+            <h4>Latest Github Commit</h4>
+            {% if commit %}
+            <p>{{ date }} EST</p>
+            <p class="mt-2">{{ commit.commit.message }}</p>
+            {% else %}
+            <p>{{ project.last_updated}}</p>
+            <p class="mt-2">No commits to your Github repository have been made yet, try again later.</p>
+            {% endif %}
         </div>
         </div>
     </div>
 
     </div>
 </section><!-- End Developer Update Section -->
+
+{% else %}
+
+<!-- ======= Stages Section ======= -->
+<section id="stages" class="stages skills section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row wrapper justify-content-center">
+            <img src="{{ MEDIA_URL }}under-construction.png" alt="Project Planning in Progress" style="width: 260px; height: 240px;">
+        </div>
+        
+        <div class="row wrapper justify-content-center">
+            <p class="text-center mt-4">Your project is currently in the planning phase, please try again later.</p>
+        </div>
+    
+    </div>
+</section><!-- End Stages Section -->
+
+{% endif %}
 
 </main>
 {% endblock %}

@@ -645,6 +645,15 @@ section {
 .services .iconbox-teal:hover .icon path {
   fill: #11dbcf;
 }
+.services .iconbox-black i {
+  color: black;
+}
+.services .iconbox-black:hover .icon i {
+  color: #fff;
+}
+.services .iconbox-black:hover .icon path {
+  fill: black;
+}
 
 /*--------------------------------------------------------------
 # Portfolio
