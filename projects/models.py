@@ -5,6 +5,8 @@ from django.dispatch import receiver
 from django.utils import timezone
 import random
 import string
+import os
+import requests
 
 
 class Stage(models.Model):

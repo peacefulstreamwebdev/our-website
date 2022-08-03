@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Project, Stage
+from django.contrib import messages
+from .forms import AddProjectForm
 import requests
 import os
 import datetime
@@ -42,6 +44,30 @@ def active_projects(request):
     context = {
         'projects': projects,
         'heading': heading,
+    }
+
+    return render(request, template, context)
+
+
+@user_passes_test(lambda user: user.is_superuser)
+def add_project(request):
+    """View for add projects page"""
+
+    if request.method == 'POST':
+        form = AddProjectForm(request.POST)
+        form.name = request.POST["name"]
+        form.user = request.POST["user"]
+        form.repo = request.POST["repo"]
+        form.save()
+        messages.success(request, 'Profile updated successfully.')
+        return redirect(reverse('home'))
+    else:
+        form = AddProjectForm()
+
+    template = 'projects/add_project.html'
+    
+    context = {
+        'form': form,
     }
 
     return render(request, template, context)
