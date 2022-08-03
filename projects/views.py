@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Project, Stage
+from .models import Project, Stage, Repo
 from django.contrib import messages
 from .forms import AddProjectForm
 import requests
@@ -55,13 +55,27 @@ def add_project(request):
 
     if request.method == 'POST':
         form = AddProjectForm(request.POST)
-        form.name = request.POST["name"]
-        form.user = request.POST["user"]
-        form.repo = request.POST["repo"]
-        form.save()
-        messages.success(request, 'Profile updated successfully.')
-        return redirect(reverse('home'))
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Project added successfully!')
+            return redirect(reverse('home'))
+        else:
+            pass
     else:
+
+        owner = os.environ.get('GITHUB_OWNER')
+        token = os.environ.get('GITHUB_TOKEN')
+        url = f'https://api.github.com/users/{ owner }/repos'
+        headers = { 'Authorization': token }
+        response = requests.get(url, headers=headers).json()
+        for repo in response:
+            exists = Repo.objects.filter(name=repo['name'])
+            if exists:
+                pass
+            else:
+                new_repo = Repo(name=repo['name'])
+                new_repo.save()
+
         form = AddProjectForm()
 
     template = 'projects/add_project.html'

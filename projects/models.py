@@ -5,8 +5,6 @@ from django.dispatch import receiver
 from django.utils import timezone
 import random
 import string
-import os
-import requests
 
 
 class Stage(models.Model):
@@ -31,7 +29,7 @@ class Project(models.Model):
     project_id = models.CharField(max_length=16, null=False, editable=False)
     name = models.CharField(max_length=254)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    repo = models.CharField(max_length=254)
+    repo = models.ForeignKey('Repo', on_delete=models.CASCADE)
     date_created = models.DateField(auto_now_add=True)
     progress = models.IntegerField(null=True, blank=True)
     last_updated = models.DateTimeField(null=True, blank=True)
@@ -67,6 +65,15 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Repo(models.Model):
+
+    name = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.name
+
 
 
 @receiver(pre_save, sender=Stage)

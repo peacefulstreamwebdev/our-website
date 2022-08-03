@@ -1,7 +1,5 @@
 from django import forms
 from .models import Project, Stage
-import os
-import requests
 
 class AddProjectForm(forms.ModelForm):
     class Meta:

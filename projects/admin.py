@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, Stage
+from .models import Project, Stage, Repo
 
 # Register your models here.
 
@@ -46,5 +46,18 @@ class ProjectAdmin(admin.ModelAdmin):
     ordering = ('name',)
 
 
+class RepoAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+    )
+
+    fields = (
+        'name',
+    )
+
+    ordering = ('name',)
+
+
 admin.site.register(Stage, StageAdmin)
 admin.site.register(Project, ProjectAdmin)
+admin.site.register(Repo, RepoAdmin)
